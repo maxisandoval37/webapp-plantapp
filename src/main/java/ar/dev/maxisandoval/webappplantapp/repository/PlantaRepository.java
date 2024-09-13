@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface PlantaRepository extends JpaRepository <Planta, Long> {
 
-    Optional<Planta> findEspecie(String especie);
+    Optional<Planta> findByEspecie(String especie);
 
     @Query("SELECT p FROM Planta p ORDER BY LOWER(p.especie) ASC")
     List<Planta> findAllByOrderByEspecieIgnoreCaseAsc();
