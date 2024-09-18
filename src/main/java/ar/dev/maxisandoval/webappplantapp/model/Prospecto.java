@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Data //toString, equals, hashcode, getters y los setters
@@ -23,5 +23,5 @@ public class Prospecto {
     private String unidad;// KG, LITROS, ETC
 
     @ManyToMany(mappedBy = "prospectosAsociados", fetch = FetchType.EAGER)
-    private List<Planta> plantas;
+    private List<Planta> plantas = new ArrayList<>();
 }
