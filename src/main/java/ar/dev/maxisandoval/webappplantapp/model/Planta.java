@@ -1,14 +1,12 @@
 package ar.dev.maxisandoval.webappplantapp.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Builder
 @Data //toString, equals, hashcode, getters y los setters
 @NoArgsConstructor
 @AllArgsConstructor
