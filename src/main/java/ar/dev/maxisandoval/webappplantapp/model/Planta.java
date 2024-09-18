@@ -3,13 +3,13 @@ package ar.dev.maxisandoval.webappplantapp.model;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.*;
 
 @Entity
-@Builder
-@Data //toString, equals, hashcode, getters y los setters
+@Data //toString, equals, hashcode, getters y setters
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Planta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,9 @@ public class Planta {
 
     @ManyToMany
     @JoinTable(name = "Planta_Prospecto",
-        joinColumns = @JoinColumn(name = "planta_id"),
-        inverseJoinColumns = @JoinColumn(name = "prospecto_id"))
-    private List<Prospecto> prospectosAsociados;
+            joinColumns = @JoinColumn(name = "planta_id"),
+            inverseJoinColumns = @JoinColumn(name = "prospecto_id"))
+    @Builder.Default
+    @ToString.Exclude //solucion loop infinito lombok
+    private List<Prospecto> prospectosAsociados = new ArrayList<>();
 }
