@@ -14,7 +14,7 @@ public class ProspectoService {
 
     public Prospecto obtenerProspectoPorId(Long id) {
         return prospectoRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("No se encontró el prospecto"+id));
+                () -> new RuntimeException("No se encontró el prospecto con el id: "+id));
     }
 
     public List<Prospecto> listarProspectos() {

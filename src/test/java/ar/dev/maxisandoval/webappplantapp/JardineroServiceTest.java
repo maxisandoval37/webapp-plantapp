@@ -6,8 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class JardineroServiceTest {
@@ -31,5 +31,20 @@ class JardineroServiceTest {
         assertNotNull(jardineroGuardado.getId());
         assertEquals("Suculentas", jardineroGuardado.getEspecialidad());
         assertEquals("juandiaz@example.com", jardineroGuardado.getEmail());
+    }
+
+    @Test
+    void testListarJardineros() {
+        List<Jardinero> jardineros = jardineroService.listarJardineros();
+        assertFalse(jardineros.isEmpty());
+    }
+
+    @Test
+    void testObtenerJardineroPorId() {
+        Long idJardinero = 1L;
+        Jardinero jardinero = jardineroService.obtenerJardineroPorId(idJardinero);
+
+        assertNotNull(jardinero);
+        assertEquals(idJardinero, jardinero.getId());
     }
 }

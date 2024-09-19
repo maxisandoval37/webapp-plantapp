@@ -65,9 +65,9 @@ public class PlantaService {
     private Planta construirPlanta(Planta plantaActualizada, Optional<Planta> plantaOptional) {
         Planta.PlantaBuilder plantaBuilder = Planta.builder();
 
-        plantaOptional.ifPresent(plantaExistente -> {
+        plantaOptional.ifPresent(plantaExistente -> { //Si plantaOptional esta presente, se le asigna su contenido a plantaExistente
             plantaBuilder
-                    .id(plantaActualizada.getId())
+                    .id(plantaExistente.getId())
                     .colorHojas(plantaActualizada.getColorHojas())
                     .especie(plantaActualizada.getEspecie())
                     .fechaPlantacion(plantaActualizada.getFechaPlantacion())
