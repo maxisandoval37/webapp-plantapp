@@ -42,13 +42,14 @@ public class PlantaViewController {
     @GetMapping("/actualizarPlanta/{id}")
     public String mostrarFormularioActualizarPlanta(@PathVariable Long id, Model model) {
         model.addAttribute("planta", plantaService.obtenerPlantaPorId(id));
-        model.addAttribute("prospecto", prospectoService.listarProspectos());
+        model.addAttribute("prospectos", prospectoService.listarProspectos());
+        model.addAttribute("jardineros" , jardineroService.listarJardineros());
 
         return "actualizarPlantaForm";
     }
 
-    @PostMapping("/actualizarPlanta{idPlanta}")
-    public String actualizarPlanta(@PathVariable Long idPlanta, @ModelAttribute Planta plantaActualizada, @RequestParam Long idJardinero, @RequestParam List<Long> idProspectos){
+    @PostMapping("/actualizarPlanta/{idPlanta}")
+    public String actualizarPlanta(@PathVariable Long idPlanta, @ModelAttribute Planta plantaActualizada, @RequestParam Long idJardinero, @RequestParam List<Long> idProspectos) {
         plantaService.actualizarPlanta(idPlanta, plantaActualizada, idJardinero, idProspectos);
         return "redirect:/plantas";
     }
