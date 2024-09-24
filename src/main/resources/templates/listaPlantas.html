@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plant-app</title>
+</head>
+<body>
+
+<h2>Lista de plantas</h2>
+
+<!--Botones para agregar prospectos y plantas-->
+<div>
+  <a th:href="@{/agregarProspecto}">Agregar Prospectos</a>
+  <a th:href="@{/agregarPlantas}">Agregar Plantas</a>
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Especie</th>
+    <th>Color Hojas</th>
+    <th>Fecha Plantación</th>
+    <th>Prospectos</th>
+    <th>Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="planta : ${plantas}">
+    <td th:text="${planta.id}"></td>
+    <td th:text="${planta.especie}"></td>
+    <td th:text="${planta.colorHojas}"></td>
+    <td th:text="${planta.fechaPlantacion}"></td>
+
+    <td>
+      <ul>
+        <li th:each="prospecto : ${planta.getProspectosAsociados()}" th:text="${prospecto.nombre}"></li>
+      </ul>
+    </td>
+
+    <!--Botones para eliminar y actualizar planta-->
+    <td>
+      <button th:onclick="'eliminarPlantaConfirmacion('+${planta.id}+');'">Eliminar</button>
+      <a th:href="@{/actualizarPlanta/{id}(id=${planta.id})}">Actualizar</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<script>
+  function eliminarPlantaConfirmacion(id) {
+    if (confirm('¿Desea eliminar la planta seleccionada?')) {
+      location.href = '/plantapp/eliminarPlanta/' + id;
+    }
+  }
+</script>
+
+</body>
+</html>
