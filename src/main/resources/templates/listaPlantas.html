@@ -48,9 +48,20 @@
 
 <script>
   function eliminarPlantaConfirmacion(id) {
-    if (confirm('¿Desea eliminar la planta seleccionada?')) {
-      location.href = '/plantapp/eliminarPlanta/' + id;
-    }
+
+    Swal.fire({
+      title: "¿Desea eliminar la planta seleccionada?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: '#fc031c',
+      confirButtonText: 'Eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        location.href = '/plantapp/eliminarPlanta/' + id;
+      }
+    });
+
   }
 </script>
 
