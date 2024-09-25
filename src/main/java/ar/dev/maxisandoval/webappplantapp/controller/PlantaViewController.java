@@ -54,7 +54,6 @@ public class PlantaViewController {
         return "redirect:/plantas";
     }
 
-
     @GetMapping("eliminarPlanta/{id}")
     public String eliminarPlanta(@PathVariable Long id) {
         plantaService.eliminarPlanta(id);

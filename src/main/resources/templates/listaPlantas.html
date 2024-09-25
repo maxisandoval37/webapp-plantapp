@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:insert="~{fragments/header}">
-
-</head>
+<head th:insert="~{fragments/header}"></head>
 <body class="container mt-5">
 
-<h2>Lista de plantas</h2>
+<h2>Lista de Plantas</h2>
 
 <!--Botones para agregar prospectos y plantas-->
 <div class="mb-3">
   <a th:href="@{/agregarProspecto}" class="btn btn-primary">Agregar Prospectos</a>
-  <a th:href="@{/agregarPlantas}" class="btn btn-primary">Agregar Plantas</a>
+  <a th:href="@{/agregarPlanta}" class="btn btn-primary">Agregar Plantas</a>
 </div>
 
 <table class="table table-bordered">
-  <thead>
+  <thead class="thead-dark">
   <tr>
     <th>ID</th>
     <th>Especie</th>

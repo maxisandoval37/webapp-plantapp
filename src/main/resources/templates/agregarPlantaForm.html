@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:insert="~{fragments/header}"></head>
+<body class="container mt-5">
+
+<h2>Agregar Planta</h2>
+
+<form th:action="@{/guardarPlanta}" method="post" class="form">
+  <div class="form-group">
+    <label for="especie">Especie:</label>
+    <input type="text" id="especie" name="especie" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="colorHojas">Color Hojas:</label>
+    <input type="text" id="colorHojas" name="colorHojas" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="fechaPlantacion">Fecha Plantación:</label>
+    <input type="date" id="fechaPlantacion" name="fechaPlantacion" class="form-control" min="1990-01-01" max="3000-12-12" required>
+  </div>
+
+  <!-- Lista desplegable para seleccionar el jardinero-->
+  <div class="form-group">
+    <label for="idJardinero">Jardinero:</label>
+    <select class="form-control" id="idJardinero" name="idJardinero" required>
+        <option th:each="jardinero : ${jardineros}" th:value="${jardinero.id}" th:text="${jardinero.email}"></option>
+    </select>
+  </div>
+
+  <!-- Lista desplegable para seleccionar los prospectos-->
+  <div class="form-group">
+    <label for="idProspectos">Prospectos:</label>
+    <select class="form-control" id="idProspectos" name="idProspectos" multiple>
+      <option th:each="prospecto : ${prospectos}" th:value="${prospecto.id}" th:text="${prospecto.nombre}"></option>
+    </select>
+  </div>
+
+  <br>
+
+  <button type="submit" class="btn btn-primary">Guardar Planta</button>
+</form>
+
+<hr>
+
+<a th:href="@{/plantas}" class="btn btn-secondary">Ver Lista de Plantas</a>
+
+<div th:replace="~{fragments/footer}"></div>
+
+</body>
+</html>
