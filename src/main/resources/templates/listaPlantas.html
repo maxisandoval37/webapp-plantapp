@@ -1,66 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:insert="~{fragments/header}"></head>
 <body class="container mt-5">
 
 <h2>Lista de Plantas</h2>
 
-<!--Botones para agregar prospectos y plantas-->
+<!--Botones para agregar prospectos y plantas -->
 <div class="mb-3">
-  <a th:href="@{/agregarProspecto}" class="btn btn-primary">Agregar Prospectos</a>
-  <a th:href="@{/agregarPlanta}" class="btn btn-primary">Agregar Plantas</a>
+    <a th:href="@{/agregarProspecto}" class="btn btn-primary">Agregar Prospecto</a>
+    <a th:href="@{/agregarPlanta}" class="btn btn-primary">Agregar Planta</a>
 </div>
 
 <table class="table table-bordered">
-  <thead class="thead-dark">
-  <tr>
-    <th>ID</th>
-    <th>Especie</th>
-    <th>Color Hojas</th>
-    <th>Fecha Plantación</th>
-    <th>Prospectos</th>
-    <th>Acciones</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="planta : ${plantas}">
-    <td th:text="${planta.id}"></td>
-    <td th:text="${planta.especie}"></td>
-    <td th:text="${planta.colorHojas}"></td>
-    <td th:text="${planta.fechaPlantacion}"></td>
 
-    <td>
-      <ul>
-        <li th:each="prospecto : ${planta.getProspectosAsociados()}" th:text="${prospecto.nombre}"></li>
-      </ul>
-    </td>
-
-    <!--Botones para eliminar y actualizar planta-->
-    <td>
-      <button th:onclick="'eliminarPlantaConfirmacion('+${planta.id}+');'" class="btn btn-danger">Eliminar</button>
-      <a th:href="@{/actualizarPlanta/{id}(id=${planta.id})}" class="btn btn-warning">Actualizar</a>
-    </td>
-  </tr>
-  </tbody>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Especie</th>
+        <th>Color Hojas</th>
+        <th>Fecha Plantación</th>
+        <th>Prospectos</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="planta : ${plantas}">
+        <td th:text="${planta.id}"></td>
+        <td th:text="${planta.especie}"></td>
+        <td th:text="${planta.colorHojas}"></td>
+        <td th:text="${planta.fechaPlantacion}"></td>
+        <td>
+            <ul>
+                <li th:each="prospecto : ${planta.getProspectosAsociados}" th:text="${prospecto.nombre}"></li>
+            </ul>
+        </td>
+        <!--Botones de eliminar y actualizar planta-->
+        <td>
+            <button th:onclick="'eliminarPlantaConfirmacion('+${planta.id}+');'" class="btn btn-danger">Eliminar</button>
+            <a th:href="@{/actualizarPlanta/{id}(id=${planta.id})}" class="btn btn-warning">Actualizar</a>
+        </td>
+    </tr>
+    </tbody>
 </table>
 
 <script>
-  function eliminarPlantaConfirmacion(id) {
-
-    Swal.fire({
-      title: "¿Desea eliminar la planta seleccionada?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: '#fc031c',
-      confirButtonText: 'Eliminar',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        location.href = '/plantapp/eliminarPlanta/' + id;
-      }
-    });
-
-  }
+    function eliminarPlantaConfirmacion(id) {
+        Swal.fire({
+            title: '¿Desea eliminar la planta seleccionada?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location.href = '/plantapp/eliminarPlanta/' + id;
+            }
+        });
+    }
 </script>
 
 <div th:replace="~{fragments/footer}"></div>

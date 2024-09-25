@@ -6,40 +6,40 @@
 <h2 class="mb-4">Actualizar Planta</h2>
 
 <form th:action="@{/actualizarPlanta/{id}(id=${planta.id})}" method="post">
-  <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="_method" value="put">
 
-  <div class="form-group">
-    <label for="especie">Especie:</label>
-    <input type="text" class="form-control" id="especie" name="especie" th:value="${planta.especie}" required>
-  </div>
+    <div class="form-group">
+        <label for="especie">Especie:</label>
+        <input type="text" class="form-control" id="especie" name="especie" th:value="${planta.especie}" required>
+    </div>
 
-  <div class="form-group">
-    <label for="colorHojas">Color Hojas:</label>
-    <input type="text" class="form-control" id="colorHojas" name="colorHojas" th:value="${planta.getColorHojas}" required>
-  </div>
+    <div class="form-group">
+        <label for="colorHojas">Color Hojas:</label>
+        <input type="text" class="form-control" id="colorHojas" name="colorHojas" th:value="${planta.getColorHojas}" required>
+    </div>
 
-  <div class="form-group">
-    <label for="fechaPlantacion">Fecha de Plantación:</label>
-    <input type="date" class="form-control" id="fechaPlantacion" name="fechaPlantacion" th:value="${planta.getFechaPlantacion}" min="1970-01-01" max="3000-12-31" required>
-  </div>
+    <div class="form-group">
+        <label for="fechaPlantacion">Fecha de Plantación:</label>
+        <input type="date" class="form-control" id="fechaPlantacion" name="fechaPlantacion" th:value="${planta.getFechaPlantacion}" min="1970-01-01" max="3000-12-31" required>
+    </div>
 
-  <!-- Lista desplegable para seleccionar el jardinero -->
-  <div class="form-group">
-    <label for="idJardinero">Jardinero:</label>
-    <select class="form-control" id="idJardinero" name="idJardinero" required>
-      <option th:each="jardinero : ${jardineros}" th:value="${jardinero.id}" th:text="${jardinero.email}" th:selected="${jardinero.id eq planta.jardinero.id}"></option>
-    </select>
-  </div>
+    <!-- Lista desplegable para seleccionar el jardinero -->
+    <div class="form-group">
+        <label for="idJardinero">Jardinero:</label>
+        <select class="form-control" id="idJardinero" name="idJardinero" required>
+            <option th:each="jardinero : ${jardineros}" th:value="${jardinero.id}" th:text="${jardinero.email}" th:selected="${jardinero.id eq planta.jardinero.id}"></option>
+        </select>
+    </div>
 
-  <!-- Lista desplegable para seleccionar las prospectos-->
-  <div class="form-group">
-    <label for="idProspectos">Prospectos:</label>
-    <select class="form-control" id="idProspectos" name="idProspectos" multiple>
-      <option th:each="prospecto : ${prospectos}" th:value="${prospecto.id}" th:text="${prospecto.nombre}" th:selected="${planta.getProspectosAsociados != null and planta.getProspectosAsociados.contains(prospecto)}"></option>
-    </select>
-  </div>
+    <!-- Lista desplegable para seleccionar las prospectos-->
+    <div class="form-group">
+        <label for="idProspectos">Prospectos:</label>
+        <select class="form-control" id="idProspectos" name="idProspectos" multiple>
+            <option th:each="prospecto : ${prospectos}" th:value="${prospecto.id}" th:text="${prospecto.nombre}" th:selected="${planta.getProspectosAsociados != null and planta.getProspectosAsociados.contains(prospecto)}"></option>
+        </select>
+    </div>
 
-  <button type="submit" class="btn btn-primary">Actualizar Planta</button>
+    <button type="submit" class="btn btn-primary">Actualizar Planta</button>
 </form>
 
 <div th:replace="~{fragments/footer}"></div>
