@@ -49,7 +49,7 @@ public class PlantaViewController {
     }
 
     @PostMapping("/actualizarPlanta/{idPlanta}")
-    public String actualizarPlanta(@PathVariable Long idPlanta, @ModelAttribute Planta plantaActualizada, @RequestParam Long idJardinero, @RequestParam List<Long> idProspectos) {
+    public String actualizarPlanta(@PathVariable Long idPlanta, @ModelAttribute Planta plantaActualizada, @RequestParam Long idJardinero, @RequestParam(required = false) List<Long> idProspectos) {
         plantaService.actualizarPlanta(idPlanta, plantaActualizada, idJardinero, idProspectos);
         return "redirect:/plantas";
     }
