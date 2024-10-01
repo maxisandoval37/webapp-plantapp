@@ -27,4 +27,7 @@ public class Jardinero {
 
     @OneToMany(mappedBy = "jardinero", fetch = FetchType.EAGER)
     private List<Planta> plantasAsociadas;
+
+    @OneToOne(mappedBy = "jardinero", cascade = CascadeType.ALL)
+    private Usuario usuario;
 }
