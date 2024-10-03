@@ -13,6 +13,13 @@
 
 <table class="table table-bordered">
 
+    USUARIO AUTENTICADO:
+    <div sec:authentication="principal.username"></div>
+    <br>
+    ROLES DEL USUARIO AUTENTICADO:
+    <div sec:authentication="principal.authorities"></div>
+    <br>
+
     <thead>
     <tr>
         <th>ID</th>
@@ -20,7 +27,7 @@
         <th>Color Hojas</th>
         <th>Fecha Plantación</th>
         <th>Prospectos</th>
-        <th>Acciones</th>
+        <th sec:authorize="hasAuthority('ROL_ADMIN')">Acciones</th>
     </tr>
     </thead>
     <tbody>
@@ -35,7 +42,7 @@
             </ul>
         </td>
         <!--Botones de eliminar y actualizar planta-->
-        <td>
+        <td sec:authorize="hasAuthority('ROL_ADMIN')">
             <button th:onclick="'eliminarPlantaConfirmacion('+${planta.id}+');'" class="btn btn-danger">Eliminar</button>
             <a th:href="@{/actualizarPlanta/{id}(id=${planta.id})}" class="btn btn-warning">Actualizar</a>
         </td>

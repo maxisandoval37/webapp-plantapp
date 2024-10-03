@@ -35,6 +35,7 @@ INSERT INTO usuario (username, contrasena, rol, nombre, apellido) VALUES ('admin
 INSERT INTO usuario (username, contrasena, rol, nombre, apellido) VALUES ('user', '{bcrypt}$2a$12$/c4G/jGZk0eJiT1oSWbV.OlaHJkskEUSFO7MYd4me31zmI7kzitf.', 'ROL_LECTURA', 'Maria', 'Gómez');
 INSERT INTO usuario (username, contrasena, rol, nombre, apellido) VALUES ('lectura', '{bcrypt}$2a$12$/c4G/jGZk0eJiT1oSWbV.OlaHJkskEUSFO7MYd4me31zmI7kzitf.', 'ROL_LECTURA', 'Carlos', 'López');
 
+-- Inserción de Usuarios con Jardineros de ejemplo (contraseña user)
 INSERT INTO usuario (username, contrasena, rol, nombre, apellido, jardinero_id) VALUES ('jardinero_eduardo', '{bcrypt}$2a$12$/c4G/jGZk0eJiT1oSWbV.OlaHJkskEUSFO7MYd4me31zmI7kzitf.', 'ROL_JARDINERO', 'Eduardo', 'Apellido', 1);
 INSERT INTO usuario (username, contrasena, rol, nombre, apellido, jardinero_id) VALUES ('jardinero_leonardo', '{bcrypt}$2a$12$/c4G/jGZk0eJiT1oSWbV.OlaHJkskEUSFO7MYd4me31zmI7kzitf.', 'ROL_JARDINERO', 'Leonardo', 'Apellido', 2);
 INSERT INTO usuario (username, contrasena, rol, nombre, apellido, jardinero_id) VALUES ('jardinero_ezequiel', '{bcrypt}$2a$12$/c4G/jGZk0eJiT1oSWbV.OlaHJkskEUSFO7MYd4me31zmI7kzitf.', 'ROL_JARDINERO', 'Ezequiel', 'Apellido', 3);
