@@ -26,6 +26,7 @@
         <th>Especie</th>
         <th>Color Hojas</th>
         <th>Fecha Plantación</th>
+        <th>Jardinero</th>
         <th>Prospectos</th>
         <th sec:authorize="hasAuthority('ROL_ADMIN')">Acciones</th>
     </tr>
@@ -36,6 +37,11 @@
         <td th:text="${planta.especie}"></td>
         <td th:text="${planta.colorHojas}"></td>
         <td th:text="${planta.fechaPlantacion}"></td>
+
+        <td th:text="${userService.obtenerUsuarioPorJardinero(planta.jardinero).nombre +' '+
+            userService.obtenerUsuarioPorJardinero(planta.jardinero).apellido}">
+        </td>
+
         <td>
             <ul>
                 <li th:each="prospecto : ${planta.getProspectosAsociados}" th:text="${prospecto.nombre}"></li>

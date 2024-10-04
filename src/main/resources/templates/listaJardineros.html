@@ -9,6 +9,8 @@
     <thead class="thead-dark">
     <tr>
         <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
         <th>Especialidad</th>
         <th>Email</th>
         <th>Plantas</th>
@@ -16,6 +18,9 @@
     </thead>
     <tbody>
     <tr th:each="jardinero : ${jardineros}">
+        <td th:text="${jardinero.id}"></td>
+        <td th:text="${userService.obtenerUsuarioPorJardinero(jardinero)?.nombre ?: 'Nombre no disponible'}"></td>
+        <td th:text="${userService.obtenerUsuarioPorJardinero(jardinero)?.apellido ?: 'Apellido no disponible'}"></td>
         <td th:text="${jardinero.id}"></td>
         <td th:text="${jardinero.especialidad}"></td>
         <td th:text="${jardinero.email}"></td>

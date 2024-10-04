@@ -105,8 +105,16 @@ public class CustomUserDetailsService implements UserDetailsService {
         return usuarioRepository.findAll();
     }
 
+    public List<Usuario> listarUsuariosRegistradosConJardineros() {
+        return usuarioRepository.findByJardineroIsNotNull();
+    }
+
     private Usuario obtenerUsuarioPorId(Long id) {
         return usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("No se encontró el usuario: " + id));
+    }
+
+    public Usuario obtenerUsuarioPorJardinero(Jardinero jardinero) {
+        return usuarioRepository.findByJardinero(jardinero);
     }
 
     public PasswordEncoder passwordEncoder() {

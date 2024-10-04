@@ -25,7 +25,7 @@
     <div class="form-group">
         <label for="idJardinero">Jardinero:</label>
         <select class="form-control" id="idJardinero" name="idJardinero" required>
-            <option th:each="jardinero : ${jardineros}" th:value="${jardinero.id}" th:text="${jardinero.email}"></option>
+            <option th:each="usuario : ${usuarioConJardinero}" th:value="${usuario.jardinero.id}" th:text="${usuario.nombre +' '+usuario.apellido}"></option>
         </select>
     </div>
 

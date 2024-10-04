@@ -1,10 +1,16 @@
 package ar.dev.maxisandoval.webappplantapp.controller;
 
+import ar.dev.maxisandoval.webappplantapp.model.Jardinero;
 import ar.dev.maxisandoval.webappplantapp.model.Planta;
+import ar.dev.maxisandoval.webappplantapp.repository.UsuarioRepository;
+import ar.dev.maxisandoval.webappplantapp.service.CustomUserDetailsService;
 import ar.dev.maxisandoval.webappplantapp.service.JardineroService;
 import ar.dev.maxisandoval.webappplantapp.service.PlantaService;
 import ar.dev.maxisandoval.webappplantapp.service.ProspectoService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.*;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,22 +18,51 @@ import java.util.List;
 
 @Controller
 @AllArgsConstructor
+@Slf4j
 public class PlantaViewController {
+    private final UsuarioRepository usuarioRepository;
 
     private final PlantaService plantaService;
     private final JardineroService jardineroService;
     private final ProspectoService prospectoService;
 
+    private final CustomUserDetailsService customUserDetailsService;
+
     @GetMapping("/plantas")
     public String listarPlantas(Model model) {
-        model.addAttribute("plantas" , plantaService.listarPlantas());
+        List<Planta> plantas;
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        mostrarRolesUsuarioActual(authentication);
+        String username = authentication.getName();
+
+        Jardinero jardinero = usuarioRepository.findByUsername(username).getJardinero();
+
+        if (jardinero != null) {
+            plantas = jardinero.getPlantasAsociadas();
+        }
+        else {
+            plantas = plantaService.listarPlantas();
+        }
+
+        model.addAttribute("plantas" , plantas);
+        model.addAttribute("userService", customUserDetailsService);
+
         return "listaPlantas";
+    }
+
+    private void mostrarRolesUsuarioActual(Authentication authentication) {
+        for (GrantedAuthority authority : authentication.getAuthorities()) {
+            String rol = authority.getAuthority();
+            log.info("Rol actual: "+rol);
+        }
     }
 
     @GetMapping("/agregarPlanta")
     public String mostrarFormularioAgregarPlanta(Model model) {
         model.addAttribute("jardineros" , jardineroService.listarJardineros());
         model.addAttribute("prospectos", prospectoService.listarProspectos());
+        model.addAttribute("usuarioConJardinero", customUserDetailsService.listarUsuariosRegistradosConJardineros());
         model.addAttribute("planta", new Planta());
 
         return "agregarPlantaForm";
@@ -44,6 +79,7 @@ public class PlantaViewController {
         model.addAttribute("planta", plantaService.obtenerPlantaPorId(id));
         model.addAttribute("prospectos", prospectoService.listarProspectos());
         model.addAttribute("jardineros" , jardineroService.listarJardineros());
+        //model.addAttribute("userService", customUserDetailsService);
 
         return "actualizarPlantaForm";
     }
