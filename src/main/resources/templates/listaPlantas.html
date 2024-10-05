@@ -9,6 +9,8 @@
 <div class="mb-3">
     <a th:href="@{/agregarProspecto}" class="btn btn-primary">Agregar Prospecto</a>
     <a th:href="@{/agregarPlanta}" class="btn btn-primary">Agregar Planta</a>
+
+    <a sec:authorize="hasAuthority('ROL_ADMIN')" th:href="@{/gestorRoles}" class="btn btn-primary">Gestor Roles (Panel Admin)</a>
 </div>
 
 <table class="table table-bordered">

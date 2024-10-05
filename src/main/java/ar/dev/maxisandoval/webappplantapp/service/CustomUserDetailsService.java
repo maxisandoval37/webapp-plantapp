@@ -109,7 +109,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         return usuarioRepository.findByJardineroIsNotNull();
     }
 
-    private Usuario obtenerUsuarioPorId(Long id) {
+    public Usuario obtenerUsuarioPorId(Long id) {
         return usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("No se encontró el usuario: " + id));
     }
 
