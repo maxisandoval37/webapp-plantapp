@@ -2,6 +2,7 @@
 /home/runner/work/webapp-plantapp/webapp-plantapp/src/main/java/ar/dev/maxisandoval/webappplantapp/WebappPlantappApplication.java
 /home/runner/work/webapp-plantapp/webapp-plantapp/src/main/java/ar/dev/maxisandoval/webappplantapp/config/SecurityConfiguration.java
 /home/runner/work/webapp-plantapp/webapp-plantapp/src/main/java/ar/dev/maxisandoval/webappplantapp/controller/AuthController.java
+/home/runner/work/webapp-plantapp/webapp-plantapp/src/main/java/ar/dev/maxisandoval/webappplantapp/controller/GlobalExceptionHandler.java
 /home/runner/work/webapp-plantapp/webapp-plantapp/src/main/java/ar/dev/maxisandoval/webappplantapp/controller/JardineroViewController.java
 /home/runner/work/webapp-plantapp/webapp-plantapp/src/main/java/ar/dev/maxisandoval/webappplantapp/controller/PanelAdminController.java
 /home/runner/work/webapp-plantapp/webapp-plantapp/src/main/java/ar/dev/maxisandoval/webappplantapp/controller/PlantaViewController.java

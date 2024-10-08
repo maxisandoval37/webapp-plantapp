@@ -6,6 +6,7 @@ ar/dev/maxisandoval/webappplantapp/model/Planta.class
 ar/dev/maxisandoval/webappplantapp/repository/JardineroRepository.class
 ar/dev/maxisandoval/webappplantapp/repository/PlantaRepository.class
 ar/dev/maxisandoval/webappplantapp/model/Prospecto.class
+ar/dev/maxisandoval/webappplantapp/controller/GlobalExceptionHandler.class
 ar/dev/maxisandoval/webappplantapp/controller/JardineroViewController.class
 ar/dev/maxisandoval/webappplantapp/controller/PlantaViewController.class
 ar/dev/maxisandoval/webappplantapp/WebappPlantappApplication.class
