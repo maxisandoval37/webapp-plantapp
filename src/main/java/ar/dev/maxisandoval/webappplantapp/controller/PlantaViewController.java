@@ -79,7 +79,6 @@ public class PlantaViewController {
         model.addAttribute("planta", plantaService.obtenerPlantaPorId(id));
         model.addAttribute("prospectos", prospectoService.listarProspectos());
         model.addAttribute("jardineros" , jardineroService.listarJardineros());
-        //model.addAttribute("userService", customUserDetailsService);
 
         return "actualizarPlantaForm";
     }
