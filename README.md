@@ -35,7 +35,7 @@ mvn clean install
 
 El endpoint principal de la aplicación se encuentra en:
 
-`/plantapp/plantas`
+`/plantas`
 
 ## Información Adicional
 Para cualquier información adicional o consultas: <maxisandoval98@gmail.com>
