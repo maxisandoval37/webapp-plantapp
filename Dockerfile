@@ -1,19 +1,12 @@
-# Etapa 1: Compilación
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-# Etapa 2: Imagen para ejecución
-FROM openjdk:17-jdk-slim
-WORKDIR /app
+FROM tomcat:10.1-jdk17
+WORKDIR /usr/local/tomcat/webapps/
 
-# Copiamos el jar generado en la etapa de construcción
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/target/*.war ./app.war
 
-# Puerto expuesto (ajustar al puerto que uses en tu app)
 EXPOSE 8080
-
-# Comando para ejecutar la aplicación
-ENTRYPOINT ["java", "-jar", "app.jar"]
