@@ -1,16 +1,19 @@
-# --Dockerfile for Maven Java (jdk 17)---
+# Etapa 1: Compilación
+FROM maven:3.8.5-openjdk-17 AS build
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-FROM eclipse-temurin:17-jdk-focal
- 
+# Etapa 2: Imagen para ejecución
+FROM openjdk:17-jdk-slim
 WORKDIR /app
 
-RUN chmod +x mvnw
-RUN chmod +x ./mvnw
- 
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN ./mvnw dependency:go-offline
- 
-COPY src ./src
- 
-CMD ["./mvnw", "spring-boot:run"]
+# Copiamos el jar generado en la etapa de construcción
+COPY --from=build /app/target/*.jar app.jar
+
+# Puerto expuesto (ajustar al puerto que uses en tu app)
+EXPOSE 8080
+
+# Comando para ejecutar la aplicación
+ENTRYPOINT ["java", "-jar", "app.jar"]
