@@ -10,22 +10,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @AllArgsConstructor
+@Slf4j
 public class AuthController {
 
     private final CustomUserDetailsService customUserDetailsService;
 
     @GetMapping("/")
     public String redireccionarPaginaPrincipal() {
+        log.info("---Entrando a root---");
         return "redirect:/plantas";
     }
 
     @GetMapping("/login")
     public String login() {
+        log.info("---Entrando a login---");
         return "login";
     }
 
     @GetMapping("/registro")
     public String mostrarFormularioRegistro(Model model) {
+        log.info("---Entrando a registro---");
         model.addAttribute("usuario", new Usuario());
         return "registro";
     }
