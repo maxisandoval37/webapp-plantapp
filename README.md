@@ -37,9 +37,20 @@ El endpoint principal de la aplicación se encuentra en:
 
 `/plantas`
 
+## Live Demo
+
+### [Click Here! 🖱️](https://github.com/maxisandoval37/webapp-plantapp/tree/main)
+
+#### Usuarios de prueba (pass: *user*):
+- admin
+- lectura
+- jardinero_eduardo
+
 ## Información Adicional
 Para cualquier información adicional o consultas: <maxisandoval98@gmail.com>
 
-![plantapp](https://onedrive.live.com/embed?resid=C5B4C3D4747E511B%21332333&authkey=%21AFT1-hF20-8-b7g)
+¡Muchas gracias!
 
-Muchas gracias!
+<p align="center">
+  <img src="https://onedrive.live.com/embed?resid=C5B4C3D4747E511B%21332333&authkey=%21AFT1-hF20-8-b7g" />
+</p>
