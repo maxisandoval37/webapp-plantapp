@@ -1,5 +1,6 @@
 /home/runner/work/webapp-plantapp/webapp-plantapp/src/main/java/ar/dev/maxisandoval/webappplantapp/ServletInitializer.java
 /home/runner/work/webapp-plantapp/webapp-plantapp/src/main/java/ar/dev/maxisandoval/webappplantapp/WebappPlantappApplication.java
+/home/runner/work/webapp-plantapp/webapp-plantapp/src/main/java/ar/dev/maxisandoval/webappplantapp/config/DatabaseResetScheduler.java
 /home/runner/work/webapp-plantapp/webapp-plantapp/src/main/java/ar/dev/maxisandoval/webappplantapp/config/SecurityConfiguration.java
 /home/runner/work/webapp-plantapp/webapp-plantapp/src/main/java/ar/dev/maxisandoval/webappplantapp/controller/AuthController.java
 /home/runner/work/webapp-plantapp/webapp-plantapp/src/main/java/ar/dev/maxisandoval/webappplantapp/controller/GlobalExceptionHandler.java
