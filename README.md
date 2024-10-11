@@ -39,7 +39,7 @@ El endpoint principal de la aplicación se encuentra en:
 
 ## Live Demo
 
-### [Click Here! 🖱️](https://github.com/maxisandoval37/webapp-plantapp/tree/main)
+### [Click Here! 🖱️](https://webapp-plantapp.onrender.com/)
 
 #### Usuarios de prueba (pass: *user*):
 - admin
