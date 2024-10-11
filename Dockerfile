@@ -12,7 +12,7 @@ COPY --from=build /app/target/*.war ./ROOT.war
 # Modificar el archivo server.xml
 RUN sed -i 's/<Server port="8005" shutdown="SHUTDOWN">/<Server port="8005" shutdown="SHUTDOWN" allowCatalina="true">/' /usr/local/tomcat/conf/server.xml
 
-# Asegúrate de que el conector HTTP esté configurado correctamente
+# Conector HTTP
 RUN sed -i 's|<Connector port="8080"|<Connector port="8080" protocol="HTTP/1.1"|g' /usr/local/tomcat/conf/server.xml
 
 # Configuración para evitar el escaneo innecesario de JARs
