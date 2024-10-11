@@ -9,9 +9,6 @@ WORKDIR /usr/local/tomcat/webapps/
 
 COPY --from=build /app/target/*.war ./ROOT.war
 
-# Modificar el archivo server.xml
-RUN sed -i 's/<Server port="8005" shutdown="SHUTDOWN">/<Server port="8005" shutdown="SHUTDOWN" allowCatalina="true">/' /usr/local/tomcat/conf/server.xml
-
 # Configuración para evitar el escaneo innecesario de JARs
 RUN echo '<?xml version="1.0" encoding="UTF-8"?><Context><JarScanner><JarScanFilter defaultPluggabilityScan="false"/></JarScanner></Context>' > /usr/local/tomcat/conf/context.xml
 
