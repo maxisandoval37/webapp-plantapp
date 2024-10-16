@@ -2,6 +2,10 @@
 
 Este proyecto es una aplicación web Java desarrollada con el framework **Spring Boot**.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/maxisandoval37/webapp-plantapp/refs/heads/main/diagrama.png" />
+</p>
+
 ## Tecnologías Utilizadas
 
 - **Java 17**
