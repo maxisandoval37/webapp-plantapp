@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ar.dev.maxisandoval.webappplantapp.PlantaServiceTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.941 s -- in ar.dev.maxisandoval.webappplantapp.PlantaServiceTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.872 s -- in ar.dev.maxisandoval.webappplantapp.PlantaServiceTest
