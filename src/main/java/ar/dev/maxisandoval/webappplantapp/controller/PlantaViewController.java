@@ -62,7 +62,7 @@ public class PlantaViewController {
     public String mostrarFormularioAgregarPlanta(Model model) {
         model.addAttribute("jardineros" , jardineroService.listarJardineros());
         model.addAttribute("prospectos", prospectoService.listarProspectos());
-        model.addAttribute("usuarioConJardinero", customUserDetailsService.listarUsuariosRegistradosConJardineros());
+        model.addAttribute("usuariosConJardinero", customUserDetailsService.listarUsuariosRegistradosConJardineros());
         model.addAttribute("planta", new Planta());
 
         return "agregarPlantaForm";
@@ -78,6 +78,7 @@ public class PlantaViewController {
     public String mostrarFormularioActualizarPlanta(@PathVariable Long id, Model model) {
         model.addAttribute("planta", plantaService.obtenerPlantaPorId(id));
         model.addAttribute("prospectos", prospectoService.listarProspectos());
+        model.addAttribute("usuariosConJardinero", customUserDetailsService.listarUsuariosRegistradosConJardineros());
         model.addAttribute("jardineros" , jardineroService.listarJardineros());
 
         return "actualizarPlantaForm";
