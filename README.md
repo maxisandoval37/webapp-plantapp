@@ -50,6 +50,10 @@ El endpoint principal de la aplicación se encuentra en:
 - lectura
 - jardinero_eduardo
 
+<p align="center">
+  <img src="https://github.com/maxisandoval37/webapp-plantapp/blob/main/demo.gif?raw=true" />
+</p>
+
 ## Información Adicional
 Para cualquier información adicional o consultas: <maxisandoval98@gmail.com>
 
