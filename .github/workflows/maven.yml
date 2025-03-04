@@ -20,12 +20,13 @@ jobs:
         java-version: '18'
 
     - name: Build and Test
-      run: mvn clean test surefire-report:report
+      run: mvn clean test surefire-report:report-only
 
     - name: Move Report to Docs
       run: |
         mkdir -p ./gh-pages
-        cp -r target/site/extent-report/* ./gh-pages/
+        cp -r target/site/* ./gh-pages/
+        mv ./gh-pages/extent-report.html ./gh-pages/index.html
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
