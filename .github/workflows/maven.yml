@@ -20,7 +20,7 @@ jobs:
         java-version: '18'
 
     - name: Build and Test
-      run: mvn clean test surefire-report:report -DgenerateReports=true
+      run: mvn clean test surefire-report:report-only site -DgenerateReports=true
 
     - name: Move Report to Docs
       run: |
