@@ -2,18 +2,18 @@ package ar.dev.maxisandoval.webappplantapp;
 
 import ar.dev.maxisandoval.webappplantapp.model.Prospecto;
 import ar.dev.maxisandoval.webappplantapp.service.ProspectoService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import lombok.RequiredArgsConstructor;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class ProspectoServiceTest {
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+class ProspectoServiceTest extends BaseTest {
 
-    @Autowired
-    private ProspectoService prospectoService;
+    private final ProspectoService prospectoService;
 
     private Prospecto prospectoGuardado;
 
