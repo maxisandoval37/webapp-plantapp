@@ -26,6 +26,7 @@ jobs:
       run: |
         mkdir -p ./gh-pages
         cp -r target/site/* ./gh-pages/
+        mv ./gh-pages/surefire-report.html ./gh-pages/index.html
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
