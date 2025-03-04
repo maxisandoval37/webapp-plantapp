@@ -20,10 +20,15 @@ jobs:
         java-version: '18'
 
     - name: Build and Test
-      run: mvn clean install test
+      run: mvn clean test surefire-report:report
+
+    - name: Move Report to Docs
+      run: |
+        mkdir -p ./gh-pages
+        cp -r target/site/surefire-report/* ./gh-pages/
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.TOKEN_APP }}
-        publish_dir: ./target
+        publish_dir: ./gh-pages
