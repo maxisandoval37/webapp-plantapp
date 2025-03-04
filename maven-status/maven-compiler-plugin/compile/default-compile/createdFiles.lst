@@ -18,6 +18,7 @@ ar/dev/maxisandoval/webappplantapp/model/Planta$PlantaBuilder.class
 ar/dev/maxisandoval/webappplantapp/config/DatabaseResetScheduler.class
 ar/dev/maxisandoval/webappplantapp/service/PlantaService.class
 ar/dev/maxisandoval/webappplantapp/service/CustomUserDetailsService.class
+ar/dev/maxisandoval/webappplantapp/controller/TestReportController.class
 ar/dev/maxisandoval/webappplantapp/service/JardineroService.class
 ar/dev/maxisandoval/webappplantapp/controller/PanelAdminController.class
 ar/dev/maxisandoval/webappplantapp/service/ProspectoService.class
