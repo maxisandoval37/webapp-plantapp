@@ -10,8 +10,8 @@ ar/dev/maxisandoval/webappplantapp/controller/GlobalExceptionHandler.class
 ar/dev/maxisandoval/webappplantapp/controller/JardineroViewController.class
 ar/dev/maxisandoval/webappplantapp/controller/PlantaViewController.class
 ar/dev/maxisandoval/webappplantapp/WebappPlantappApplication.class
-ar/dev/maxisandoval/webappplantapp/controller/AuthController.class
 ar/dev/maxisandoval/webappplantapp/model/Jardinero.class
+ar/dev/maxisandoval/webappplantapp/controller/AuthController.class
 ar/dev/maxisandoval/webappplantapp/controller/ProspectosViewController.class
 ar/dev/maxisandoval/webappplantapp/model/Usuario.class
 ar/dev/maxisandoval/webappplantapp/model/Planta$PlantaBuilder.class
