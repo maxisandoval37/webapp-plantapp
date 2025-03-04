@@ -2,26 +2,21 @@ package ar.dev.maxisandoval.webappplantapp;
 
 import  ar.dev.maxisandoval.webappplantapp.model.*;
 import  ar.dev.maxisandoval.webappplantapp.service.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import lombok.RequiredArgsConstructor;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class PlantaServiceTest {
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+class PlantaServiceTest extends BaseTest {
 
-    @Autowired
-    private PlantaService plantaService;
-
-    @Autowired
-    private JardineroService jardineroService;
-
-    @Autowired
-    private ProspectoService prospectoService;
+    private final PlantaService plantaService;
+    private final JardineroService jardineroService;
+    private final ProspectoService prospectoService;
 
     private Jardinero jardineroGuardado;
     private Prospecto prospectoGuardada;
