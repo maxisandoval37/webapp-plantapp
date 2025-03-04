@@ -38,7 +38,7 @@ class ExtentManager {
 
     public static synchronized ExtentReports getInstance() {
         if (extent == null) {
-            ExtentSparkReporter spark = new ExtentSparkReporter("target/site/extent-report.html");
+            ExtentSparkReporter spark = new ExtentSparkReporter("target/site/index.html");
             extent = new ExtentReports();
             extent.attachReporter(spark);
         }

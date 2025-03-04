@@ -17,16 +17,15 @@ jobs:
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
-        java-version: '18'
+        java-version: '17'
 
     - name: Build and Test
-      run: mvn clean test surefire-report:report-only
+      run: mvn clean test
 
     - name: Move Report to Docs
       run: |
         mkdir -p ./gh-pages
         cp -r target/site/* ./gh-pages/
-        mv ./gh-pages/extent-report.html ./gh-pages/index.html
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
